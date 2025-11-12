@@ -14,7 +14,7 @@ const Header = () => {
 
       <View style={styles.titleContainer}>
         <MaterialCommunityIcons name="react" size={20} color="#00FFFF" style={styles.icon} /> 
-        <Text style={styles.title}>Desenvolvedor Mobile | React Native</Text>
+        <Text style={styles.title}>Desenvolvedor Front-end Web e Mobile | React+React Native</Text>
       </View>
     </View>
   );
