@@ -13,7 +13,7 @@ const Header = () => {
       />
 
       {/* 2. Nome Completo */}
-      <Text style={styles.name}>Levy (Seu Nome Completo)</Text>
+      <Text style={styles.name}>Isaías Levi Tavares da Silva</Text>
 
       {/* 3. Título Profissional */}
       <Text style={styles.title}>Desenvolvedor Mobile | React Native</Text>
