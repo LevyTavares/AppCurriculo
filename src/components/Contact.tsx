@@ -53,8 +53,8 @@ const ContactItem = ({ label, value, url, iconName, iconSet }: ContactItemProps)
 };
 
 const Contact = () => {
-  const myEmail = 'seu.email@exemplo.com';
-  const myPhone = '5588999998888'; 
+  const myEmail = 'isaiaslevi2@gmail.com';
+  const myPhone = '5588994337653'; 
   const myLinkedIn = 'seu-usuario-linkedin';
   const myGitHub = 'seu-usuario-github';
   const mySite = 'seusite.com';
