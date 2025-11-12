@@ -11,8 +11,8 @@ const About = () => {
       </View>
       <Text style={styles.aboutText}>
         Sou um estudante de Sistemas de Informação apaixonado por criar 
-        soluções de tecnologia. Com foco em desenvolvimento mobile 
-        com React Native e backend com Node.js e Python, busco 
+        soluções de tecnologia. Com foco em desenvolvimento Front-end web e mobile 
+        com React e React Native, busco 
         oportunidades para aplicar e expandir meus conhecimentos.
       </Text>
     </View>
