@@ -55,8 +55,8 @@ const ContactItem = ({ label, value, url, iconName, iconSet }: ContactItemProps)
 const Contact = () => {
   const myEmail = 'isaiaslevi2@gmail.com';
   const myPhone = '5588994337653'; 
-  const myLinkedIn = 'seu-usuario-linkedin';
-  const myGitHub = 'seu-usuario-github';
+  const myLinkedIn = 'https://www.linkedin.com/in/isaías-levi-tavares-da-silva-38414b195';
+  const myGitHub = 'https://github.com/LevyTavares';
   const mySite = 'seusite.com';
 
   return (
@@ -76,7 +76,7 @@ const Contact = () => {
 
       <ContactItem 
         label="WhatsApp"
-        value="+55 (88) 99999-8888"
+        value="+55 (88) 99433-7653"
         url={`whatsapp://send?phone=${myPhone}`}
         iconName="whatsapp"
         iconSet="MaterialCommunityIcons"
