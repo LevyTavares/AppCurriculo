@@ -4,8 +4,8 @@ Projeto de um aplicativo de Currículo (CV) desenvolvido como atividade para a d
 
   * **Aluno:** Isaias Levi Tavares da Silva
   * **Curso:** Sistemas de Informação
-  * **Matéria:** [Nome da Matéria]
-  * **Professor:** [Nome do Professor]
+  * **Matéria:** FRONT-END FRAMEWORKS
+  * **Professor:** Erickson Marconi de Souza Torquato
 
 -----
 
