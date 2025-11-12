@@ -3,12 +3,11 @@ import {
   View, 
   Text, 
   StyleSheet, 
-  FlatList, 
   TouchableOpacity,
   Alert 
 } from 'react-native';
 
-// 1. Dados de exemplo (substitua pelos seus)
+// 1. Dados de exemplo
 const experiences = [
   {
     id: '1',
@@ -26,44 +25,36 @@ const experiences = [
   },
 ];
 
-// 2. Tipo para os nossos dados (bom para TypeScript)
-type ExperienceItemProps = {
-  id: string;
-  empresa: string;
-  cargo: string;
-  periodo: string;
-  descricao: string;
-};
+type ExperienceItemProps = typeof experiences[0]; // TypeScript mais simples
 
 const Experience = () => {
 
-  // 3. Função que mostra o Alerta com os detalhes
   const showDetails = (item: ExperienceItemProps) => {
     Alert.alert(
-      item.cargo, // Título do Alerta
-      `Empresa: ${item.empresa}\nPeríodo: ${item.periodo}\n\nDescrição: ${item.descricao}` // Mensagem
+      item.cargo,
+      `Empresa: ${item.empresa}\nPeríodo: ${item.periodo}\n\nDescrição: ${item.descricao}`
     );
   };
-
-  // 4. Função que renderiza cada item da lista
-  const renderItem = ({ item }: { item: ExperienceItemProps }) => (
-    <TouchableOpacity 
-      style={styles.itemContainer}
-      onPress={() => showDetails(item)} // Ação de clique
-    >
-      <Text style={styles.itemTitle}>{item.cargo}</Text>
-      <Text style={styles.itemSubtitle}>{item.empresa} ({item.periodo})</Text>
-    </TouchableOpacity>
-  );
 
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Experiência Profissional</Text>
-      <FlatList
-        data={experiences}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      
+      {/* 2. ADEUS FLATLIST: Usando .map() no lugar */}
+      <View>
+        {experiences.map((item) => (
+          <TouchableOpacity 
+            key={item.id} // A 'key' agora vai aqui
+            style={styles.itemContainer}
+            onPress={() => showDetails(item)}
+          >
+            <Text style={styles.itemTitle}>{item.cargo}</Text>
+            <Text style={styles.itemSubtitle}>{item.empresa} ({item.periodo})</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      {/* FIM DA MUDANÇA */}
+
     </View>
   );
 };
@@ -89,7 +80,7 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#007bff' // Azul para indicar que é clicável
+    color: '#007bff'
   },
   itemSubtitle: {
     fontSize: 14,
@@ -98,5 +89,4 @@ const styles = StyleSheet.create({
   }
 });
 
-// 5. Exportação para corrigir o erro no App.tsx
 export default Experience;
