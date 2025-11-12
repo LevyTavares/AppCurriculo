@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
   Alert 
 } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-// 1. Dados de exemplo
 const experiences = [
   {
     id: '1',
@@ -25,26 +25,29 @@ const experiences = [
   },
 ];
 
-type ExperienceItemProps = typeof experiences[0]; // TypeScript mais simples
+type ExperienceItemProps = typeof experiences[0];
 
 const Experience = () => {
 
   const showDetails = (item: ExperienceItemProps) => {
     Alert.alert(
       item.cargo,
-      `Empresa: ${item.empresa}\nPeríodo: ${item.periodo}\n\nDescrição: ${item.descricao}`
+      `Empresa: ${item.empresa}\nPeríodo: ${item.periodo}\n\nDescrição: ${item.descricao}`,
+      [{ text: "OK", style: "cancel" }] // Adiciona um botão OK
     );
   };
 
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>Experiência Profissional</Text>
+      <View style={styles.sectionHeader}>
+        <MaterialCommunityIcons name="briefcase" size={24} color="#00FFFF" style={styles.headerIcon} />
+        <Text style={styles.sectionTitle}>Experiência Profissional</Text>
+      </View>
       
-      {/* 2. ADEUS FLATLIST: Usando .map() no lugar */}
       <View>
         {experiences.map((item) => (
           <TouchableOpacity 
-            key={item.id} // A 'key' agora vai aqui
+            key={item.id}
             style={styles.itemContainer}
             onPress={() => showDetails(item)}
           >
@@ -53,8 +56,6 @@ const Experience = () => {
           </TouchableOpacity>
         ))}
       </View>
-      {/* FIM DA MUDANÇA */}
-
     </View>
   );
 };
@@ -63,28 +64,41 @@ const styles = StyleSheet.create({
   section: {
     marginVertical: 15,
   },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  headerIcon: {
+    marginRight: 10,
+  },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#333',
+    color: '#00FFFF',
   },
   itemContainer: {
-    backgroundColor: '#fff',
-    padding: 15,
+    backgroundColor: '#1A1A32', // Fundo escuro para os itens
+    padding: 18,
     marginBottom: 10,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#ddd'
+    borderColor: '#9400D3', // Borda roxa neon
+    shadowColor: '#00FFFF', // Sombra sutil
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
   },
   itemTitle: {
-    fontSize: 16,
+    fontSize: 18, // Aumenta o título
     fontWeight: 'bold',
-    color: '#007bff'
+    color: '#00FFFF', // Ciano neon
   },
   itemSubtitle: {
-    fontSize: 14,
-    color: '#555',
+    fontSize: 15,
+    color: '#F0F8FF', // Texto quase branco
     marginTop: 4,
   }
 });

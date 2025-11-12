@@ -1,48 +1,56 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; // Importa um conjunto de ícones
 
 const Header = () => {
   return (
     <View style={styles.container}>
-      {/* 1. Foto do Candidato */}
       <Image
         style={styles.profileImage}
-        // Use 'require' para imagens locais
-        // Este caminho está correto: ../ sobe de 'components' para 'src'
         source={require('../assets/profile-pic.png')} 
       />
 
-      {/* 2. Nome Completo */}
-      <Text style={styles.name}>Isaías Levi Tavares da Silva</Text>
+      <Text style={styles.name}>Isaias Levi Tavares da Silva</Text>
 
-      {/* 3. Título Profissional */}
-      <Text style={styles.title}>Desenvolvedor Mobile | React Native</Text>
+      <View style={styles.titleContainer}>
+        <MaterialCommunityIcons name="react" size={20} color="#00FFFF" style={styles.icon} /> 
+        <Text style={styles.title}>Desenvolvedor Mobile | React Native</Text>
+      </View>
     </View>
   );
 };
 
-// Estilos para o componente
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center', // Centraliza tudo no container
-    marginBottom: 20,     // Espaço abaixo do cabeçalho
+    alignItems: 'center',
+    marginBottom: 30, // Aumenta o espaço para destacar mais
+    paddingTop: 20, // Espaço no topo
   },
   profileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 75, // Metade da largura/altura para fazer um círculo
-    borderWidth: 3,
-    borderColor: '#007bff', // Uma cor de borda
-    marginBottom: 10,
+    width: 160, // Aumenta um pouco
+    height: 160,
+    borderRadius: 80,
+    borderWidth: 4, // Borda um pouco mais grossa
+    borderColor: '#00FFFF', // Borda ciano neon
+    marginBottom: 15,
   },
   name: {
-    fontSize: 24,
+    fontSize: 28, // Aumenta um pouco
     fontWeight: 'bold',
-    color: '#333',
+    color: '#F0F8FF', // Texto quase branco
+    marginBottom: 5,
+  },
+  titleContainer: {
+    flexDirection: 'row', // Para alinhar ícone e texto
+    alignItems: 'center',
+  },
+  icon: {
+    marginRight: 8,
   },
   title: {
-    fontSize: 18,
-    color: '#666',
+    fontSize: 19, // Aumenta um pouco
+    color: '#9400D3', // Roxo neon para o título
+    fontStyle: 'italic', // Para dar um toque diferenciado
   },
 });
 

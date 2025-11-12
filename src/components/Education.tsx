@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'; // FlatList removido
+import { View, Text, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-// 1. Dados de exemplo
 const education = [
   {
     id: '1',
@@ -20,9 +20,11 @@ const education = [
 const Education = () => {
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>Formação Acadêmica</Text>
+      <View style={styles.sectionHeader}>
+        <MaterialCommunityIcons name="school" size={24} color="#00FFFF" style={styles.headerIcon} />
+        <Text style={styles.sectionTitle}>Formação Acadêmica</Text>
+      </View>
       
-      {/* 2. ADEUS FLATLIST: Usando .map() no lugar */}
       <View>
         {education.map((item) => (
           <View key={item.id} style={styles.itemContainer}>
@@ -32,8 +34,6 @@ const Education = () => {
           </View>
         ))}
       </View>
-      {/* FIM DA MUDANÇA */}
-
     </View>
   );
 };
@@ -42,31 +42,46 @@ const styles = StyleSheet.create({
   section: {
     marginVertical: 15,
   },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  headerIcon: {
+    marginRight: 10,
+  },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#333',
+    color: '#00FFFF',
   },
   itemContainer: {
-    backgroundColor: '#fff',
-    padding: 15,
+    backgroundColor: '#1A1A32',
+    padding: 18,
     marginBottom: 10,
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#9400D3',
+    shadowColor: '#00FFFF',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
   },
   itemTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#00FFFF',
   },
   itemSubtitle: {
-    fontSize: 14,
-    color: '#555',
+    fontSize: 15,
+    color: '#F0F8FF',
     marginTop: 4,
   },
   itemPeriod: {
     fontSize: 14,
-    color: '#888',
+    color: '#A9A9A9', // Cinza escuro
     marginTop: 2,
     fontStyle: 'italic',
   }
